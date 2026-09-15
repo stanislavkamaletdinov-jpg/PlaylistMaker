@@ -3,6 +3,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,6 +26,7 @@
     </com.google.android.material.textview.MaterialTextView>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/searchButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -42,10 +44,10 @@
         app:iconPadding="8dp"
         app:cornerRadius="16dp"
         >
-
     </com.google.android.material.button.MaterialButton>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/mediaButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -60,12 +62,11 @@
         app:iconTint="@color/YP_black"
         app:iconGravity="textStart"
         app:iconPadding="8dp"
-        app:cornerRadius="16dp"
-        >
-
+        app:cornerRadius="16dp"        >
     </com.google.android.material.button.MaterialButton>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/settingsButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -83,6 +84,5 @@
         app:iconPadding="8dp"
         app:cornerRadius="16dp"
         >
-
     </com.google.android.material.button.MaterialButton>
 </LinearLayout>
