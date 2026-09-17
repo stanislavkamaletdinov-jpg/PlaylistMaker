@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/YP_white"
@@ -20,11 +22,15 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center">
-                <ImageView
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/backButton"
+                    android:backgroundTint="@android:color/transparent"
+                    android:insetTop="0dp"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_arrow_back" />
+                    app:icon="@drawable/ic_arrow_back"
+                    app:iconTint="@color/YP_black" />
             </FrameLayout>
         </FrameLayout>
 
@@ -54,6 +60,7 @@
             android:textSize="16sp" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/themeSwitch"
             android:layout_width="56dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -82,11 +89,17 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="12dp" >
-            <ImageView
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareButton"
                 android:layout_width="16dp"
                 android:layout_height="18dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_share" />
+                android:backgroundTint="@android:color/transparent"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                app:icon="@drawable/ic_share"
+                app:iconTint="@color/YP_Text_Gray" />
         </FrameLayout>
 
     </LinearLayout>
@@ -109,11 +122,23 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="12dp" >
-            <ImageView
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/contactSupportButton"
                 android:layout_width="16dp"
                 android:layout_height="18dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_contact" />
+                android:backgroundTint="@android:color/transparent"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                app:icon="@drawable/ic_contact"
+                app:iconSize="16dp"
+                app:iconTint="@color/YP_Text_Gray" />
         </FrameLayout>
     </LinearLayout>
 
@@ -135,11 +160,23 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="12dp" >
-            <ImageView
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/userAgreementButton"
                 android:layout_width="16dp"
                 android:layout_height="18dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_right" />
+                android:backgroundTint="@android:color/transparent"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                app:icon="@drawable/ic_arrow_right"
+                app:iconSize="16dp"
+                app:iconTint="@color/YP_Text_Gray" />
         </FrameLayout>
     </LinearLayout>
 
