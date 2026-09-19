@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="medium_padding">8dp</dimen>
-    <dimen name="primary_text_size">24sp</dimen>
+
+    <!-- Общие размеры -->
+    <dimen name="screen_horizontal_margin">16dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="screen_title_text_size">22sp</dimen>
+
+    <!-- Заголовок главного экрана -->
+    <dimen name="main_title_padding_horizontal">12dp</dimen>
+    <dimen name="main_title_padding_top">10dp</dimen>
+    <dimen name="main_title_margin">4dp</dimen>
+
+    <!-- Кнопки главного экрана -->
+    <dimen name="main_button_text_size">22sp</dimen>
+    <dimen name="main_button_icon_padding">8dp</dimen>
+    <dimen name="main_button_corner_radius">16dp</dimen>
+    <dimen name="main_buttons_margin_top">24dp</dimen>
+    <dimen name="main_buttons_margin_bottom">28dp</dimen>
+
+    <!-- Панель настроек -->
+    <dimen name="back_button_container_size">48dp</dimen>
+    <dimen name="back_button_margin_start">4dp</dimen>
+    <dimen name="back_button_size">16dp</dimen>
+    <dimen name="settings_title_margin_start">6dp</dimen>
+
+    <!-- Пункты настроек -->
+    <dimen name="settings_content_margin_top">24dp</dimen>
+    <dimen name="settings_item_height">61dp</dimen>
+    <dimen name="settings_item_text_size">16sp</dimen>
+    <dimen name="settings_icon_container_size">24dp</dimen>
+    <dimen name="settings_icon_margin_end">12dp</dimen>
+    <dimen name="settings_action_icon_size">16dp</dimen>
+    <dimen name="settings_action_button_width">16dp</dimen>
+    <dimen name="settings_action_button_height">18dp</dimen>
+
+    <!-- Переключатель темы -->
+    <dimen name="theme_switch_width">56dp</dimen>
+    <dimen name="theme_switch_height">40dp</dimen>
+    <dimen name="theme_switch_margin_horizontal">16dp</dimen>
+
 </resources>

@@ -23,15 +23,12 @@ class SettingsActivity : AppCompatActivity() {
         val shareButton = findViewById<MaterialButton>(R.id.shareButton)
         val contactSupportButton = findViewById<MaterialButton>(R.id.contactSupportButton)
         val userAgreementButton = findViewById<MaterialButton>(R.id.userAgreementButton)
+        val backButton = findViewById<MaterialButton>(R.id.backButton)
 
-//        val buttonClickListener: View.OnClickListener =
-//            View.OnClickListener {
-//                Toast.makeText(this@SettingsActivity, "Нажали на кнопку!", Toast.LENGTH_SHORT).show()
-//            }
-
-        shareButton.setOnClickListener(buttonClickListener)
-        contactSupportButton.setOnClickListener(buttonClickListener)
-        userAgreementButton.setOnClickListener(buttonClickListener)
+//        shareButton.setOnClickListener()
+//        contactSupportButton.setOnClickListener()
+//        userAgreementButton.setOnClickListener()
+//        backButton.setOnClickListener()
     }
 }
 

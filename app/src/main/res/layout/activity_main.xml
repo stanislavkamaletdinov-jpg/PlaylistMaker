@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,82 +6,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/YP_Blue"
-    >
+    android:background="@color/YP_Blue">
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/toolbar_height"
         android:text="@string/app_name"
-        android:textSize="22sp"
+        android:textSize="@dimen/screen_title_text_size"
         android:textColor="@color/YP_white"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:paddingTop="10dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        >
-    </com.google.android.material.textview.MaterialTextView>
+        android:paddingStart="@dimen/main_title_padding_horizontal"
+        android:paddingEnd="@dimen/main_title_padding_horizontal"
+        android:paddingTop="@dimen/main_title_padding_top"
+        android:layout_marginTop="@dimen/main_title_margin"
+        android:layout_marginStart="@dimen/main_title_margin"
+        android:layout_marginEnd="@dimen/main_title_margin" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/searchButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/main_buttons_margin_top"
+        android:layout_marginStart="@dimen/screen_horizontal_margin"
+        android:layout_marginEnd="@dimen/screen_horizontal_margin"
         android:backgroundTint="@color/YP_white"
         android:text="@string/search"
-        android:textSize="22sp"
+        android:textSize="@dimen/main_button_text_size"
         android:textAllCaps="false"
         android:textColor="@color/YP_black"
         app:icon="@drawable/ic_search"
         app:iconTint="@color/YP_black"
         app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:cornerRadius="16dp"
-        >
-    </com.google.android.material.button.MaterialButton>
+        app:iconPadding="@dimen/main_button_icon_padding"
+        app:cornerRadius="@dimen/main_button_corner_radius" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mediaButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/screen_horizontal_margin"
+        android:layout_marginEnd="@dimen/screen_horizontal_margin"
         android:backgroundTint="@color/YP_white"
         android:text="@string/media"
-        android:textSize="22sp"
+        android:textSize="@dimen/main_button_text_size"
         android:textAllCaps="false"
         android:textColor="@color/YP_black"
         app:icon="@drawable/ic_media"
         app:iconTint="@color/YP_black"
         app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:cornerRadius="16dp"        >
-    </com.google.android.material.button.MaterialButton>
+        app:iconPadding="@dimen/main_button_icon_padding"
+        app:cornerRadius="@dimen/main_button_corner_radius" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/settingsButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="@dimen/screen_horizontal_margin"
+        android:layout_marginEnd="@dimen/screen_horizontal_margin"
+        android:layout_marginBottom="@dimen/main_buttons_margin_bottom"
         android:backgroundTint="@color/YP_white"
         android:text="@string/settings"
-        android:textSize="22sp"
+        android:textSize="@dimen/main_button_text_size"
         android:textAllCaps="false"
         android:textColor="@color/YP_black"
         app:icon="@drawable/ic_settings"
         app:iconTint="@color/YP_black"
         app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:cornerRadius="16dp"
-        >
-    </com.google.android.material.button.MaterialButton>
+        app:iconPadding="@dimen/main_button_icon_padding"
+        app:cornerRadius="@dimen/main_button_corner_radius" />
+
 </LinearLayout>
