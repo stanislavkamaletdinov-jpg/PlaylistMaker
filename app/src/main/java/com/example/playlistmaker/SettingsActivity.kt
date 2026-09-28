@@ -8,6 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textview.MaterialTextView
+import android.content.res.Configuration
+import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.material.switchmaterial.SwitchMaterial
+import androidx.core.content.edit
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,15 +25,39 @@ class SettingsActivity : AppCompatActivity() {
             insets
         }
 
-        val shareButton = findViewById<MaterialButton>(R.id.shareButton)
-        val contactSupportButton = findViewById<MaterialButton>(R.id.contactSupportButton)
-        val userAgreementButton = findViewById<MaterialButton>(R.id.userAgreementButton)
+        val themeSwitch = findViewById<SwitchMaterial>(R.id.themeSwitch)
+
+        val sharedPrefs = getSharedPreferences(
+            "playlist_maker_preferences",
+            MODE_PRIVATE
+        )
+
+        val isDarkTheme =
+            (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                    Configuration.UI_MODE_NIGHT_YES
+
+        themeSwitch.isChecked = isDarkTheme
+
+        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+
+            sharedPrefs.edit {
+                putBoolean("dark_theme", isChecked)
+            }
+
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
+        val shareButton = findViewById<MaterialTextView>(R.id.shareButton)
+        val contactSupportButton = findViewById<MaterialTextView>(R.id.contactSupportButton)
+        val userAgreementButton = findViewById<MaterialTextView>(R.id.userAgreementButton)
         val backButton = findViewById<MaterialButton>(R.id.backButton)
 
-//        shareButton.setOnClickListener()
-//        contactSupportButton.setOnClickListener()
-//        userAgreementButton.setOnClickListener()
-//        backButton.setOnClickListener()
+
+
     }
 }
 

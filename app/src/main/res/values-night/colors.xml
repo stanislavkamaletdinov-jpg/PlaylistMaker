@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="screen_background">@color/YP_black</color>
+    <color name="main_background">@color/YP_black</color>
+    <color name="primary_text">@color/YP_white</color>
+
+    <color name="search_field_background">@color/YP_white</color>
+    <color name="search_field_text">@color/YP_black</color>
+
+    <color name="settings_icon">@color/YP_white</color>
+
+</resources>

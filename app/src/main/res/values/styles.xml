@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="TextAppearance.PlaylistMaker.Title">
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextAppearance.PlaylistMaker.Body">
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.PlaylistMaker.Caption">
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

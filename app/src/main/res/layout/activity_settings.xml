@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/YP_white"
+    android:background="@color/screen_background"
     android:orientation="vertical">
 
     <LinearLayout
@@ -41,7 +41,7 @@
                     android:minHeight="0dp"
                     android:padding="0dp"
                     app:icon="@drawable/ic_arrow_back"
-                    app:iconTint="@color/YP_black" />
+                    app:iconTint="@color/primary_text" />
 
             </FrameLayout>
         </FrameLayout>
@@ -51,158 +51,60 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/settings_title_margin_start"
             android:text="@string/settings"
-            android:textColor="@color/YP_black"
-            android:textSize="@dimen/screen_title_text_size" />
+            android:textAppearance="@style/TextAppearance.PlaylistMaker.Title"
+            android:textColor="@color/primary_text" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/themeSwitch"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
         android:layout_marginTop="@dimen/settings_content_margin_top"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:paddingStart="@dimen/screen_horizontal_margin"
+        android:paddingEnd="@dimen/settings_icon_margin_end"
+        android:text="@string/darkMode"
+        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
+        android:textColor="@color/primary_text" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="0dp"
-            android:layout_height="19dp"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/screen_horizontal_margin"
-            android:text="@string/darkMode"
-            android:textColor="@color/YP_black"
-            android:textSize="@dimen/settings_item_text_size" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/themeSwitch"
-            android:layout_width="@dimen/theme_switch_width"
-            android:layout_height="@dimen/theme_switch_height"
-            android:layout_marginStart="@dimen/theme_switch_margin_horizontal"
-            android:layout_marginEnd="@dimen/theme_switch_margin_horizontal"
-            android:layout_gravity="center" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/shareButton"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:paddingStart="@dimen/screen_horizontal_margin"
+        android:paddingEnd="@dimen/settings_icon_margin_end"
+        android:text="@string/shareApp"
+        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
+        android:textColor="@color/primary_text"
+        app:drawableEndCompat="@drawable/ic_share"
+        app:drawableTint="@color/settings_icon" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="0dp"
-            android:layout_height="19dp"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/screen_horizontal_margin"
-            android:text="@string/shareApp"
-            android:textColor="@color/YP_black"
-            android:textSize="@dimen/settings_item_text_size" />
-
-        <FrameLayout
-            android:layout_width="@dimen/settings_icon_container_size"
-            android:layout_height="@dimen/settings_icon_container_size"
-            android:layout_marginEnd="@dimen/settings_icon_margin_end">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/shareButton"
-                android:layout_width="@dimen/settings_action_button_width"
-                android:layout_height="@dimen/settings_action_button_height"
-                android:layout_gravity="center"
-                android:backgroundTint="@android:color/transparent"
-                android:stateListAnimator="@null"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="0dp"
-                app:icon="@drawable/ic_share"
-                app:iconSize="@dimen/settings_action_icon_size"
-                app:iconTint="@color/YP_Text_Gray" />
-
-        </FrameLayout>
-    </LinearLayout>
-
-    <LinearLayout
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/contactSupportButton"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:paddingStart="@dimen/screen_horizontal_margin"
+        android:paddingEnd="@dimen/settings_icon_margin_end"
+        android:text="@string/textSupport"
+        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
+        android:textColor="@color/primary_text"
+        app:drawableEndCompat="@drawable/ic_contact"
+        app:drawableTint="@color/settings_icon" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="0dp"
-            android:layout_height="19dp"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/screen_horizontal_margin"
-            android:text="@string/textSupport"
-            android:textColor="@color/YP_black"
-            android:textSize="@dimen/settings_item_text_size" />
-
-        <FrameLayout
-            android:layout_width="@dimen/settings_icon_container_size"
-            android:layout_height="@dimen/settings_icon_container_size"
-            android:layout_marginEnd="@dimen/settings_icon_margin_end">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/contactSupportButton"
-                android:layout_width="@dimen/settings_action_button_width"
-                android:layout_height="@dimen/settings_action_button_height"
-                android:layout_gravity="center"
-                android:backgroundTint="@android:color/transparent"
-                android:stateListAnimator="@null"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="0dp"
-                app:icon="@drawable/ic_contact"
-                app:iconSize="@dimen/settings_action_icon_size"
-                app:iconTint="@color/YP_Text_Gray" />
-
-        </FrameLayout>
-    </LinearLayout>
-
-    <LinearLayout
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/userAgreementButton"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="0dp"
-            android:layout_height="19dp"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/screen_horizontal_margin"
-            android:text="@string/userAgreement"
-            android:textColor="@color/YP_black"
-            android:textSize="@dimen/settings_item_text_size" />
-
-        <FrameLayout
-            android:layout_width="@dimen/settings_icon_container_size"
-            android:layout_height="@dimen/settings_icon_container_size"
-            android:layout_marginEnd="@dimen/settings_icon_margin_end">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/userAgreementButton"
-                android:layout_width="@dimen/settings_action_button_width"
-                android:layout_height="@dimen/settings_action_button_height"
-                android:layout_gravity="center"
-                android:backgroundTint="@android:color/transparent"
-                android:stateListAnimator="@null"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="0dp"
-                app:icon="@drawable/ic_arrow_right"
-                app:iconSize="@dimen/settings_action_icon_size"
-                app:iconTint="@color/YP_Text_Gray" />
-
-        </FrameLayout>
-    </LinearLayout>
+        android:paddingStart="@dimen/screen_horizontal_margin"
+        android:paddingEnd="@dimen/settings_icon_margin_end"
+        android:text="@string/userAgreement"
+        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
+        android:textColor="@color/primary_text"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        app:drawableTint="@color/settings_icon" />
 
 </LinearLayout>
