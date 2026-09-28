@@ -66,7 +66,9 @@
         android:paddingEnd="@dimen/settings_icon_margin_end"
         android:text="@string/darkMode"
         android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
-        android:textColor="@color/primary_text" />
+        android:textColor="@color/primary_text"
+        app:thumbTint="@color/theme_switch_thumb"
+        app:trackTint="@color/theme_switch_track" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/shareButton"
