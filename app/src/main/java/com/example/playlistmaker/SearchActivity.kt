@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.button.MaterialButton
 
 class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +36,7 @@ class SearchActivity : AppCompatActivity() {
                 } else {
                     clearButton.visibility = View.VISIBLE
                 }
+                // TODO: Добавить поиск
             }
 
             override fun afterTextChanged(s: Editable?) {}
@@ -47,7 +47,7 @@ class SearchActivity : AppCompatActivity() {
         clearButton.setOnClickListener {
             searchEditText.text.clear()
             WindowCompat.getInsetsController(
-                window,searchEditText)
+                window, searchEditText)
                 .hide(WindowInsetsCompat.Type.ime())
         }
 
