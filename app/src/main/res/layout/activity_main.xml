@@ -34,7 +34,7 @@
         android:textSize="@dimen/main_button_text_size"
         android:textAllCaps="false"
         android:textColor="@color/YP_black"
-        app:icon="@drawable/ic_search"
+        app:icon="@drawable/ic_search_24"
         app:iconTint="@color/YP_black"
         app:iconGravity="textStart"
         app:iconPadding="@dimen/main_button_icon_padding"

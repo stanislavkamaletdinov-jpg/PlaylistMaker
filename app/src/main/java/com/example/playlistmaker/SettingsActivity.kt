@@ -1,8 +1,7 @@
 package com.example.playlistmaker
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +12,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.switchmaterial.SwitchMaterial
 import androidx.core.content.edit
+import androidx.core.net.toUri
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +21,19 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left + 16, systemBars.top + 16, systemBars.right + 16, systemBars.bottom + 16)
+            v.setPadding(
+                systemBars.left,
+                systemBars.top,
+                systemBars.right,
+                systemBars.bottom
+            )
             insets
+        }
+
+        val backButton = findViewById<MaterialButton>(R.id.backButton)
+
+        backButton.setOnClickListener {
+            finish()
         }
 
         val themeSwitch = findViewById<SwitchMaterial>(R.id.themeSwitch)
@@ -52,11 +63,35 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         val shareButton = findViewById<MaterialTextView>(R.id.shareButton)
+        shareButton.setOnClickListener {
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_text))
+            }
+            startActivity(shareIntent)
+        }
+
         val contactSupportButton = findViewById<MaterialTextView>(R.id.contactSupportButton)
+        contactSupportButton.setOnClickListener {
+            val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+                data = "mailto:".toUri()
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.support_email)))
+                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.support_subject))
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.support_body))
+            }
+            val chooserIntent = Intent.createChooser(emailIntent, null)
+            startActivity(chooserIntent)
+        }
+
         val userAgreementButton = findViewById<MaterialTextView>(R.id.userAgreementButton)
-        val backButton = findViewById<MaterialButton>(R.id.backButton)
-
-
+        userAgreementButton.setOnClickListener {
+            val userAgreementIntent = Intent(
+                Intent.ACTION_VIEW,
+                getString(
+                    R.string.user_agreement_url
+                ).toUri())
+            startActivity(userAgreementIntent)
+        }
 
     }
 }

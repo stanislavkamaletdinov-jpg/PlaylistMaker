@@ -63,7 +63,7 @@
         android:layout_marginTop="@dimen/settings_content_margin_top"
         android:gravity="center_vertical"
         android:paddingStart="@dimen/screen_horizontal_margin"
-        android:paddingEnd="@dimen/settings_icon_margin_end"
+        android:paddingEnd="@dimen/theme_switch_margin_horizontal"
         android:text="@string/darkMode"
         android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
         android:textColor="@color/primary_text"
