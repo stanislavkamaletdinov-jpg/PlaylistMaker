@@ -15,6 +15,8 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SearchActivity : AppCompatActivity() {
+    var searchText: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,6 +33,7 @@ class SearchActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                searchText = s?.toString() ?: ""
                 if (s.isNullOrEmpty()) {
                     clearButton.visibility = View.GONE
                 } else {
@@ -47,7 +50,8 @@ class SearchActivity : AppCompatActivity() {
         clearButton.setOnClickListener {
             searchEditText.text.clear()
             WindowCompat.getInsetsController(
-                window, searchEditText)
+                window, searchEditText
+            )
                 .hide(WindowInsetsCompat.Type.ime())
         }
 
@@ -67,5 +71,17 @@ class SearchActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("SEARCH_TEXT", searchText)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        searchText = savedInstanceState.getString("SEARCH_TEXT", "")
+        val searchEditText = findViewById<EditText>(R.id.searchEditText)
+        searchEditText.setText(searchText)
     }
 }
