@@ -72,41 +72,23 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/shareButton"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/settings_item_height"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/screen_horizontal_margin"
-        android:paddingEnd="@dimen/settings_icon_margin_end"
+        style="@style/SettingsItem"
         android:text="@string/shareApp"
-        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
-        android:textColor="@color/primary_text"
         app:drawableEndCompat="@drawable/ic_share"
-        app:drawableTint="@color/settings_icon" />
+        />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/contactSupportButton"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/settings_item_height"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/screen_horizontal_margin"
-        android:paddingEnd="@dimen/settings_icon_margin_end"
+        style="@style/SettingsItem"
         android:text="@string/textSupport"
-        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
-        android:textColor="@color/primary_text"
         app:drawableEndCompat="@drawable/ic_contact"
-        app:drawableTint="@color/settings_icon" />
+        />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/userAgreementButton"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/settings_item_height"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/screen_horizontal_margin"
-        android:paddingEnd="@dimen/settings_icon_margin_end"
+        style="@style/SettingsItem"
         android:text="@string/userAgreement"
-        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
-        android:textColor="@color/primary_text"
         app:drawableEndCompat="@drawable/ic_arrow_right"
-        app:drawableTint="@color/settings_icon" />
+        />
 
 </LinearLayout>

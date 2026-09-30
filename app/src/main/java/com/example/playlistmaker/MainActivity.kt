@@ -18,12 +18,17 @@ class MainActivity : AppCompatActivity() {
             MODE_PRIVATE
         )
 
+        val hasThemePreference = sharedPrefs.contains("dark_theme")
         val isDarkTheme = sharedPrefs.getBoolean("dark_theme", false)
 
-        val mode = if (isDarkTheme) {
-            AppCompatDelegate.MODE_NIGHT_YES
+        val mode = if (hasThemePreference) {
+            if (isDarkTheme) {
+                AppCompatDelegate.MODE_NIGHT_YES
+            } else {
+                AppCompatDelegate.MODE_NIGHT_NO
+            }
         } else {
-            AppCompatDelegate.MODE_NIGHT_NO
+            AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
         }
 
         AppCompatDelegate.setDefaultNightMode(mode)
@@ -32,7 +37,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left + 16, systemBars.top + 16, systemBars.right + 16, systemBars.bottom + 16)
+            v.setPadding(
+                systemBars.left,
+                systemBars.top,
+                systemBars.right,
+                systemBars.bottom)
             insets
         }
 

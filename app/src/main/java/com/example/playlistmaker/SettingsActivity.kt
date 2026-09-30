@@ -68,7 +68,8 @@ class SettingsActivity : AppCompatActivity() {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_text))
             }
-            startActivity(shareIntent)
+            val chooserIntent = Intent.createChooser(shareIntent, null)
+            startActivity(chooserIntent)
         }
 
         val contactSupportButton = findViewById<MaterialTextView>(R.id.contactSupportButton)
