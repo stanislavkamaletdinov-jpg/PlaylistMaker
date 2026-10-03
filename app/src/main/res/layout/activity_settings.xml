@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/back_button_container_size"
+                android:layout_height="@dimen/back_button_container_size"
+                android:layout_marginStart="@dimen/back_button_margin_start"
+                android:layout_gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/backButton"
+                    android:layout_width="@dimen/back_button_size"
+                    android:layout_height="@dimen/back_button_size"
+                    android:layout_gravity="center"
+                    app:backgroundTint="@android:color/transparent"
+                    app:strokeWidth="0dp"
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    app:icon="@drawable/ic_arrow_back"
+                    app:iconTint="@color/primary_text" />
+
+        </FrameLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/settings_title_margin_start"
+            android:text="@string/settings"
+            android:textAppearance="@style/TextAppearance.PlaylistMaker.Title"
+            android:textColor="@color/primary_text" />
+
+    </LinearLayout>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/themeSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_item_height"
+        android:layout_marginTop="@dimen/settings_content_margin_top"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/screen_horizontal_margin"
+        android:paddingEnd="@dimen/theme_switch_margin_horizontal"
+        android:text="@string/darkMode"
+        android:textAppearance="@style/TextAppearance.PlaylistMaker.Body"
+        android:textColor="@color/primary_text"
+        app:thumbTint="@color/theme_switch_thumb"
+        app:trackTint="@color/theme_switch_track" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/shareButton"
+        style="@style/SettingsItem"
+        android:text="@string/shareApp"
+        app:drawableEndCompat="@drawable/ic_share"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/contactSupportButton"
+        style="@style/SettingsItem"
+        android:text="@string/textSupport"
+        app:drawableEndCompat="@drawable/ic_contact"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/userAgreementButton"
+        style="@style/SettingsItem"
+        android:text="@string/userAgreement"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        />
+
+</LinearLayout>

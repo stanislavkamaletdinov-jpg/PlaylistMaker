@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="@color/main_background">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.textview.MaterialTextView
+        android:textAppearance="@style/TextAppearance.PlaylistMaker.Title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:text="@string/app_name"
+        android:textColor="@color/YP_white"
+        android:paddingStart="@dimen/main_title_padding_horizontal"
+        android:paddingEnd="@dimen/main_title_padding_horizontal"
+        android:paddingTop="@dimen/main_title_padding_top"
+        android:layout_marginTop="@dimen/main_title_margin"
+        android:layout_marginStart="@dimen/main_title_margin"
+        android:layout_marginEnd="@dimen/main_title_margin" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/searchButton"
+        style="@style/MainScreenButton"
+        android:layout_marginTop="@dimen/main_buttons_margin_top"
+        android:text="@string/search"
+        app:icon="@drawable/ic_search_24"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mediaButton"
+        style="@style/MainScreenButton"
+        android:text="@string/media"
+        app:icon="@drawable/ic_media"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/settingsButton"
+        style="@style/MainScreenButton"
+        android:layout_marginBottom="@dimen/main_buttons_margin_bottom"
+        android:insetBottom="0dp"
+        android:text="@string/settings"
+        app:icon="@drawable/ic_settings"
+        />
+
+</LinearLayout>
