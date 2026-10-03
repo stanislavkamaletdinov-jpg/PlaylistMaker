@@ -2,8 +2,6 @@ package com.example.playlistmaker
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -14,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
+import androidx.core.widget.doOnTextChanged
 
 class SearchActivity : AppCompatActivity() {
     var searchText: String = ""
@@ -34,25 +33,15 @@ class SearchActivity : AppCompatActivity() {
         val navigationMedia = findViewById<LinearLayout>(R.id.navigationMedia)
         val navigationSettings = findViewById<LinearLayout>(R.id.navigationSettings)
 
-        val textWatcher = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+        searchEditText.doOnTextChanged { s, start, before, count ->
+            searchText = s?.toString() ?: ""
+            if (s.isNullOrEmpty()) {
+                clearButton.visibility = View.GONE
+            } else {
+                clearButton.visibility = View.VISIBLE
             }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                searchText = s?.toString() ?: ""
-                if (s.isNullOrEmpty()) {
-                    clearButton.visibility = View.GONE
-                } else {
-                    clearButton.visibility = View.VISIBLE
-                }
-                // TODO: Добавить поиск
-            }
-
-            override fun afterTextChanged(s: Editable?) {}
+            // TODO: Добавить поиск
         }
-
-        searchEditText.addTextChangedListener(textWatcher)
 
         clearButton.setOnClickListener {
             searchEditText.text.clear()
