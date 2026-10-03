@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 
 class SearchActivity : AppCompatActivity() {
     var searchText: String = ""
@@ -21,6 +22,12 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_search)
+
+        val backButton = findViewById<MaterialButton>(R.id.backButton)
+
+        backButton.setOnClickListener {
+            finish()
+        }
 
         val searchEditText = findViewById<EditText>(R.id.searchEditText)
         val clearButton = findViewById<ImageView>(R.id.clearButton)

@@ -45,7 +45,7 @@
     <dimen name="search_clear_padding_horizontal">12dp</dimen>
     <dimen name="search_clear_padding_vertical">10dp</dimen>
 
-    <dimen name="search_field_text_size">12sp</dimen>
+    <dimen name="search_field_text_size">16sp</dimen>
 
     <dimen name="search_icon_size">16dp</dimen>
     <dimen name="search_icon_margin_start">12dp</dimen>

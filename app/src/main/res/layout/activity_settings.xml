@@ -14,11 +14,6 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <FrameLayout
-            android:layout_width="@dimen/back_button_container_size"
-            android:layout_height="@dimen/back_button_container_size"
-            android:layout_marginStart="@dimen/back_button_margin_start">
-
             <FrameLayout
                 android:layout_width="@dimen/settings_icon_container_size"
                 android:layout_height="@dimen/settings_icon_container_size"
@@ -43,7 +38,6 @@
                     app:icon="@drawable/ic_arrow_back"
                     app:iconTint="@color/primary_text" />
 
-            </FrameLayout>
         </FrameLayout>
 
         <com.google.android.material.textview.MaterialTextView
