@@ -10,4 +10,6 @@
 
     <color name="settings_icon">@color/YP_white</color>
 
+    <color name="track_info_color">@color/YP_white</color>
+
 </resources>
