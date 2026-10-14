@@ -19,4 +19,6 @@
 
     <color name="settings_icon">@color/YP_Text_Gray</color>
 
+    <color name="track_info_color">@color/YP_Text_Gray</color>
+
 </resources>

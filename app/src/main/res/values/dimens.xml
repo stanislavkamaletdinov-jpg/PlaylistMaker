@@ -60,4 +60,26 @@
     <dimen name="bottom_navigation_icon_size">24dp</dimen>
     <dimen name="bottom_navigation_text_size">12sp</dimen>
     <dimen name="bottom_navigation_divider_height">0.5dp</dimen>
+
+    <!-- Tracks -->
+    <dimen name="track_item_height">61dp</dimen>
+
+    <dimen name="track_artwork_size">45dp</dimen>
+    <dimen name="track_artwork_margin_start">13dp</dimen>
+    <dimen name="track_artwork_margin_top">8dp</dimen>
+    <dimen name="track_artwork_corner_radius">2dp</dimen>
+
+    <dimen name="track_name_margin_start">8dp</dimen>
+    <dimen name="track_name_margin_top">6dp</dimen>
+    <dimen name="track_name_margin_end">8dp</dimen>
+    <dimen name="track_name_text_size">16sp</dimen>
+
+    <dimen name="track_arrow_size">24dp</dimen>
+    <dimen name="track_arrow_margin_end">12dp</dimen>
+
+    <dimen name="track_info_text_size">11sp</dimen>
+
+    <dimen name="track_separator_size">13dp</dimen>
+
+    <dimen name="tracks_list_margin_top">24dp</dimen>
 </resources>
