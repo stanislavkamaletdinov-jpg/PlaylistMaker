@@ -20,7 +20,10 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(track: Track) {
         trackName.text = track.trackName
+            ?: itemView.context.getString(R.string.track_unknown_title)
+
         trackArtist.text = track.artistName
+            ?: itemView.context.getString(R.string.track_unknown_artist)
 
         val duration = track.trackTimeMillis
 

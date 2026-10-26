@@ -51,6 +51,8 @@
     <dimen name="search_icon_margin_start">12dp</dimen>
     <dimen name="search_icon_margin_end">8dp</dimen>
 
+    <dimen name="search_placeholder_margin_top">86dp</dimen>
+
     <dimen name="corner_radius">8dp</dimen>
 
     <dimen name="search_field_height">36dp</dimen>
