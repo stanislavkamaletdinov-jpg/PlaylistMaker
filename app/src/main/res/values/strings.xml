@@ -4,6 +4,12 @@
 
     <string name="search">Поиск</string>
     <string name="search_clear">Очистить поисковый запрос</string>
+    <string name="search_nothing_found">Ничего не нашлось</string>
+    <string name="search_connection_error">Проблемы со связью\n\nЗагрузка не удалась. Проверьте подключение к интернету</string>
+    <string name="search_retry">Обновить</string>
+
+    <string name="track_unknown_title">Без названия</string>
+    <string name="track_unknown_artist">Неизвестный исполнитель</string>
 
     <string name="media">Медиатека</string>
     <string name="settings">Настройки</string>
@@ -19,4 +25,6 @@
 
     <string name="userAgreement">Пользовательское соглашение</string>
     <string name="user_agreement_url">https://yandex.ru/legal/practicum_offer/</string>
+
+
 </resources>
