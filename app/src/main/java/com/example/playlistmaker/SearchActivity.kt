@@ -3,6 +3,7 @@ package com.example.playlistmaker
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -45,6 +46,13 @@ class SearchActivity : AppCompatActivity() {
                 clearButton.visibility = View.VISIBLE
             }
             // TODO: Добавить поиск
+        }
+
+        searchEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                // ВЫПОЛНЯЙТЕ ПОИСКОВЫЙ ЗАПРОС ЗДЕСЬ
+                true
+            } else { false }
         }
 
         clearButton.setOnClickListener {
