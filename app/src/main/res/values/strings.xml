@@ -10,6 +10,7 @@
 
     <string name="track_unknown_title">Без названия</string>
     <string name="track_unknown_artist">Неизвестный исполнитель</string>
+    <string name="track_unknown_duration" translatable="false">--:--</string>
 
     <string name="media">Медиатека</string>
     <string name="settings">Настройки</string>

@@ -16,7 +16,9 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val trackArtist: TextView = itemView.findViewById(R.id.trackArtist)
     val trackTime: TextView = itemView.findViewById(R.id.trackTime)
 
-
+    private val dateFormat by lazy {
+        SimpleDateFormat("mm:ss", Locale.getDefault())
+    }
 
     fun bind(track: Track) {
         trackName.text = track.trackName
@@ -28,9 +30,10 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val duration = track.trackTimeMillis
 
         if (duration == null) {
-            trackTime.text = "--:--"
+            trackTime.text =
+                itemView.context.getString(R.string.track_unknown_duration)
         } else {
-            trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(duration)
+            trackTime.text = dateFormat.format(duration)
         }
 
         val cornerRadius = itemView.resources.getDimensionPixelSize(

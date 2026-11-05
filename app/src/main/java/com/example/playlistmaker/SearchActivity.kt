@@ -68,6 +68,15 @@ class SearchActivity : AppCompatActivity() {
         var lastFailedQuery = ""
         var searchVersion = 0
 
+        fun showError(query: String) {
+            tracks.clear()
+            emptyPlaceholder.visibility = View.GONE
+            tracksRecyclerView.visibility = View.GONE
+            errorPlaceholder.visibility = View.VISIBLE
+            tracksRecyclerView.adapter?.notifyDataSetChanged()
+            lastFailedQuery = query
+        }
+
         fun searchTracks(query: String) {
             val call = iTunesApi.search(query)
             searchVersion += 1
@@ -80,7 +89,7 @@ class SearchActivity : AppCompatActivity() {
                     if (requestVersion != searchVersion) {
                         return
                     }
-                    if (response.code() == 200) {
+                    if (response.isSuccessful) {
                         errorPlaceholder.visibility = View.GONE
                         val foundTracks = response.body()?.results
                         if (foundTracks.isNullOrEmpty()) {
@@ -96,12 +105,7 @@ class SearchActivity : AppCompatActivity() {
                             tracksRecyclerView.adapter?.notifyDataSetChanged()
                         }
                     } else {
-                        tracks.clear()
-                        emptyPlaceholder.visibility = View.GONE
-                        tracksRecyclerView.visibility = View.GONE
-                        errorPlaceholder.visibility = View.VISIBLE
-                        tracksRecyclerView.adapter?.notifyDataSetChanged()
-                        lastFailedQuery = query
+                        showError(query)
                     }
                 }
 
@@ -112,12 +116,7 @@ class SearchActivity : AppCompatActivity() {
                     if (requestVersion != searchVersion) {
                         return
                     }
-                    tracks.clear()
-                    emptyPlaceholder.visibility = View.GONE
-                    tracksRecyclerView.visibility = View.GONE
-                    errorPlaceholder.visibility = View.VISIBLE
-                    tracksRecyclerView.adapter?.notifyDataSetChanged()
-                    lastFailedQuery = query
+                    showError(query)
                 }
 
             })
