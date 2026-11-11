@@ -7,6 +7,8 @@
     <string name="search_nothing_found">Ничего не нашлось</string>
     <string name="search_connection_error">Проблемы со связью\n\nЗагрузка не удалась. Проверьте подключение к интернету</string>
     <string name="search_retry">Обновить</string>
+    <string name="search_history_title">"Вы искали"</string>
+    <string name="search_history_clear">"Очистить историю"</string>
 
     <string name="track_unknown_title">Без названия</string>
     <string name="track_unknown_artist">Неизвестный исполнитель</string>
