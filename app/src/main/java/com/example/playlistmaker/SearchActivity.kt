@@ -52,21 +52,74 @@ class SearchActivity : AppCompatActivity() {
         val emptyPlaceholder = findViewById<LinearLayout>(R.id.emptyPlaceholder)
         val errorPlaceholder = findViewById<LinearLayout>(R.id.errorPlaceholder)
 
+        val sharedPrefs = getSharedPreferences(
+            "playlist_maker_preferences",
+            MODE_PRIVATE
+        )
+
+        val searchHistory = SearchHistory(sharedPrefs)
+
         val tracksRecyclerView = findViewById<RecyclerView>(R.id.tracksRecyclerView)
         tracksRecyclerView.layoutManager = LinearLayoutManager(this)
-        tracksRecyclerView.adapter = TrackAdapter(tracks)
+        tracksRecyclerView.adapter = TrackAdapter(tracks) { track ->
+            searchHistory.addTrack(track)
+        }
+
+        val historyRecyclerView = findViewById<RecyclerView>(R.id.historyRecyclerView)
+        historyRecyclerView.layoutManager = LinearLayoutManager(this)
+        val historyTracks = arrayListOf<Track>()
+
+        val historyContainer = findViewById<LinearLayout>(R.id.historyContainer)
+
+        fun updateHistoryVisibility() {
+            if (searchEditText.text.isEmpty() && searchEditText.hasFocus() && searchHistory.getHistory()
+                    .isNotEmpty()
+            ) {
+                historyTracks.clear()
+                historyTracks.addAll(searchHistory.getHistory())
+                historyRecyclerView.adapter?.notifyDataSetChanged()
+                historyContainer.visibility = View.VISIBLE
+            } else {
+                historyContainer.visibility = View.GONE
+            }
+        }
+
+        historyRecyclerView.adapter = TrackAdapter(historyTracks) { track ->
+            searchHistory.addTrack(track)
+            updateHistoryVisibility()
+        }
+
+        val clearHistoryButton = findViewById<MaterialButton>(R.id.clearHistoryButton)
+        clearHistoryButton.setOnClickListener {
+            searchHistory.clearHistory()
+            updateHistoryVisibility()
+        }
+
+        var searchVersion = 0
 
         searchEditText.doOnTextChanged { s, start, before, count ->
             searchText = s?.toString() ?: ""
             if (s.isNullOrEmpty()) {
                 clearButton.visibility = View.GONE
+                searchVersion += 1
+                tracks.clear()
+                emptyPlaceholder.visibility = View.GONE
+                errorPlaceholder.visibility = View.GONE
+                tracksRecyclerView.visibility = View.GONE
+                tracksRecyclerView.adapter?.notifyDataSetChanged()
             } else {
                 clearButton.visibility = View.VISIBLE
             }
+            updateHistoryVisibility()
         }
 
+        searchEditText.setOnFocusChangeListener { _, _ ->
+            updateHistoryVisibility()
+        }
+
+        updateHistoryVisibility()
+
         var lastFailedQuery = ""
-        var searchVersion = 0
 
         fun showError(query: String) {
             tracks.clear()
@@ -139,13 +192,7 @@ class SearchActivity : AppCompatActivity() {
         }
 
         clearButton.setOnClickListener {
-            searchVersion += 1
             searchEditText.text.clear()
-            tracks.clear()
-            emptyPlaceholder.visibility = View.GONE
-            errorPlaceholder.visibility = View.GONE
-            tracksRecyclerView.visibility = View.GONE
-            tracksRecyclerView.adapter?.notifyDataSetChanged()
             WindowCompat.getInsetsController(
                 window, searchEditText
             )
@@ -165,7 +212,8 @@ class SearchActivity : AppCompatActivity() {
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val ime = insets.getInsets(WindowInsetsCompat.Type.ime())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, maxOf(systemBars.bottom, ime.bottom))
             insets
         }
     }
