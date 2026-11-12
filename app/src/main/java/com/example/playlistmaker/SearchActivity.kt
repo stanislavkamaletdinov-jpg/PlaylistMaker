@@ -95,10 +95,18 @@ class SearchActivity : AppCompatActivity() {
             updateHistoryVisibility()
         }
 
+        var searchVersion = 0
+
         searchEditText.doOnTextChanged { s, start, before, count ->
             searchText = s?.toString() ?: ""
             if (s.isNullOrEmpty()) {
                 clearButton.visibility = View.GONE
+                searchVersion += 1
+                tracks.clear()
+                emptyPlaceholder.visibility = View.GONE
+                errorPlaceholder.visibility = View.GONE
+                tracksRecyclerView.visibility = View.GONE
+                tracksRecyclerView.adapter?.notifyDataSetChanged()
             } else {
                 clearButton.visibility = View.VISIBLE
             }
@@ -112,7 +120,6 @@ class SearchActivity : AppCompatActivity() {
         updateHistoryVisibility()
 
         var lastFailedQuery = ""
-        var searchVersion = 0
 
         fun showError(query: String) {
             tracks.clear()
@@ -185,13 +192,7 @@ class SearchActivity : AppCompatActivity() {
         }
 
         clearButton.setOnClickListener {
-            searchVersion += 1
             searchEditText.text.clear()
-            tracks.clear()
-            emptyPlaceholder.visibility = View.GONE
-            errorPlaceholder.visibility = View.GONE
-            tracksRecyclerView.visibility = View.GONE
-            tracksRecyclerView.adapter?.notifyDataSetChanged()
             WindowCompat.getInsetsController(
                 window, searchEditText
             )
